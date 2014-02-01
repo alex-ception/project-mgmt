@@ -46,12 +46,12 @@ Installation (Debian GNU/Linux)
 ### Configuring app/config/parameters.yml file
 
 And especially the following variables :
-    database_driver: pdo_mysql
-    database_host: 127.0.0.1
-    database_port: null
-    database_name: YourDBName
-    database_user: YourUsername
-    database_password: YourPassword
+    `database_driver: pdo_mysql`
+    `database_host: 127.0.0.1`
+    `database_port: null`
+    `database_name: YourDBName`
+    `database_user: YourUsername`
+    `database_password: YourPassword`
 
 Make sur your database exists and your user can modify it !
 
