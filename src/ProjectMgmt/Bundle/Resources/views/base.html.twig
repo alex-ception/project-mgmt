@@ -70,19 +70,34 @@
                         <ul id="menu" class="nav nav-pills nav-stacked">
                             {% for book in books %}
                             <li class="active">
-                                <a data-toggle="collapse" data-parent="#menu" href="#book-{{ book.id }}" class="right-clickable">{{ book.name }}</a>
+                                <a data-toggle="collapse" data-parent="#menu" href="#book-{{ book.id }}" class="right-clickable">
+                                    <i class="fa fa-folder-open-o"></i>
+                                    {{ book.name }}
+                                </a>
                                 <ul id="book-{{ book.id }}" class="nav nav-pills nav-stacked collapse">
                                     {% for chapter in book.chapters %}
                                     <li>
-                                        <a href="{{ path('chapter_show', { 'id': chapter.id }) }}">{{ chapter.name }}</a>
+                                        <a href="{{ path('chapter_show', { 'id': chapter.id }) }}">
+                                            <i class="fa fa-file-text-o"></i>
+                                            {{ chapter.name }}
+                                        </a>
                                     </li>
                                     {% endfor %}
                                     <li>
-                                        <a href="{{ path('chapter_new', { 'idBook': book.id }) }}">Nouveau chapitre</a>
+                                        <a href="{{ path('chapter_new', { 'idBook': book.id }) }}">
+                                            <i class="fa fa-plus" style="color: darkgreen;"></i>
+                                            Nouveau chapitre
+                                        </a>
                                     </li>
                                 </ul>
                             </li>
                             {% endfor %}
+                            <li class="active">
+                                <a href="#">
+                                    <i class="fa fa-plus" style="color: darkgreen;"></i>
+                                    Nouveau livre
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-md-9">
