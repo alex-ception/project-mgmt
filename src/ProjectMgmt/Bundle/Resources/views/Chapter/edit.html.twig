@@ -1,0 +1,10 @@
+{% extends 'ProjectMgmtBundle::base.html.twig' %}
+{% block content %}
+<h1>chapter edition</h1>
+
+<form action="{{ path('book_modif') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Save</button>
+    </p>
+</form>{% endblock content %}

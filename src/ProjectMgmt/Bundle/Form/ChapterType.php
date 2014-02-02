@@ -16,9 +16,7 @@ class ChapterType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('author')
             ->add('order')
-            ->add('book')
         ;
     }
     

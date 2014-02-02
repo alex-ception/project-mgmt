@@ -1,8 +1,8 @@
 {% extends 'ProjectMgmtBundle::base.html.twig' %}
 {% block content %}
-<h1>Book creation</h1>
+<h1>Chapter creation</h1>
 
-<form action="{{ path('book_create') }}" method="post" {{ form_enctype(form) }}>
+<form action="{{ path('chapter_create',{'idBook':idBook}) }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
         <button type="submit">Create</button>
