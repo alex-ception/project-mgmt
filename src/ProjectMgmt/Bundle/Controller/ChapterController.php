@@ -24,6 +24,7 @@ class ChapterController extends Controller {
                     'idBook' => $idBook
         ));
     }
+    
     public function createAction($idBook) {
         $user = $this->getUser();
         $book = $this->getDoctrine()->getRepository('ProjectMgmtBundle:Book')->find($idBook);
@@ -35,6 +36,31 @@ class ChapterController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $chapter->setBook($book);
             $chapter->setAuthor($user);
+            $em->persist($chapter);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('chapter_show', array('id' => $chapter->getId())));
+        }
+    }
+    
+    public function editAction($id) {
+        $chapter = $this->getDoctrine()->getRepository('ProjectMgmtBundle:Chapter')->find($id);
+        $form = $this->createForm(new ChapterType(),$chapter);
+
+
+        return $this->render('ProjectMgmtBundle:Chapter:edit.html.twig', array(
+                    'form' => $form->createView(),
+                    'id' => $id
+        ));
+    }
+    
+    public function updateAction($id) {
+        $chapter = $this->getDoctrine()->getRepository('ProjectMgmtBundle:Chapter')->find($id);
+        $form = $this->createForm(new ChapterType(),$chapter);
+        $form->bind($this->getRequest());
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
             $em->persist($chapter);
             $em->flush();
 

@@ -14,10 +14,6 @@ book_create:
     pattern:  /book/create
     defaults: { _controller: "ProjectMgmtBundle:Book:create" }
     requirements: { _method: post }
-
-book_edit:
-    pattern:  /book/{id}/edit
-    defaults: { _controller: ProjectMgmtBundle:Book:edit" }
     
 chapter_show:
     pattern:  /chapter/{id}/show
@@ -34,9 +30,9 @@ chapter_create:
 
 chapter_edit:
     pattern:  /chapter/{id}/edit
-    defaults: { _controller: ProjectMgmtBundle:Chapter:edit" }
+    defaults: { _controller: "ProjectMgmtBundle:Chapter:edit" }
     
-chapter_modif:
-    pattern:  /chapter/{id}/create
-    defaults: { _controller: "ProjectMgmtBundle:Chapter:modif" }
+chapter_update:
+    pattern:  /chapter/{id}/update
+    defaults: { _controller: "ProjectMgmtBundle:Chapter:update" }
     requirements: { _method: post }
