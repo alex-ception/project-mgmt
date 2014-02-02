@@ -1,0 +1,18 @@
+{% extends 'ProjectMgmtBundle::base.html.twig' %}
+
+{% block breadcrumb_content %}
+    {{ parent() }}
+    <li class="active">
+        {{ 'base.breadcrumb.login'|trans }}
+    </li>
+{% endblock breadcrumb_content %}
+
+{% block content_title %}
+    {{ 'page.login.content_title'|trans }}
+{% endblock content_title %}
+    
+{% block content %}
+<div class="col-md-offset-4 col-md-4">
+    {% include 'ProjectMgmtBundle:Security:login_content.html.twig' %}
+</div>
+{% endblock content %}

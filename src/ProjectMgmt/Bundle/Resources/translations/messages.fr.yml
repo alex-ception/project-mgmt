@@ -1,0 +1,21 @@
+base:
+  title: Project MGMT
+  navbar:
+    user:
+      user.label: Bienvenue %username%
+      login.label: Connexion
+      logout.label: Déconnexion
+  footer: ~
+  breadcrumb:
+    home: Accueil
+    login: Connexion
+
+page:
+  home:
+    content_title: Accueil
+  login:
+    content_title: Connexion
+    form:
+      username.label: Utilisateur
+      password.label: Mot de passe
+      submit.label: Se connecter

@@ -1,0 +1,5 @@
+{% for flash in app.session.flashbag.get(type) %}
+    <div class="alert alert-{{ type }}">
+        {{ flash }}
+    </div>
+{% endfor %}

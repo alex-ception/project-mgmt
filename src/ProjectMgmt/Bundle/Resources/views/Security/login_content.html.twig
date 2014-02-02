@@ -1,0 +1,12 @@
+<form action="{{ path('login_check') }}" method="post" role="form">
+    <div class="form-group">
+        <label for="username">{{ 'page.login.form.username.label'|trans }}</label>
+        <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" />
+    </div>
+    <div class="form-group">
+        <label for="password">{{ 'page.login.form.password.label'|trans }}</label>
+        <input type="password" id="password" name="_password" class="form-control" />
+    </div>
+    
+    <button type="submit" class="btn btn-default">{{ 'page.login.form.submit.label'|trans }}</button>
+</form>

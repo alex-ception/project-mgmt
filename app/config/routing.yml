@@ -1,0 +1,13 @@
+project_mgmt:
+    resource: "@ProjectMgmtBundle/Resources/config/routing.yml"
+    prefix:   /
+
+login:
+    pattern: /login
+    defaults: { _controller:ProjectMgmtBundle:Security:login }
+
+login_check:
+    pattern: /login_check
+
+logout: 
+    pattern: /logout
