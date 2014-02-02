@@ -1,3 +1,20 @@
 project_mgmt_homepage:
     pattern:  /
     defaults: { _controller: ProjectMgmtBundle:Default:index }
+
+book_show:
+    pattern:  /book/{id}/show
+    defaults: { _controller: "ProjectMgmtBundle:Book:show" }
+
+book_new:
+    pattern:  /book/new
+    defaults: { _controller: "ProjectMgmtBundle:Book:new" }
+
+book_create:
+    pattern:  /book/create
+    defaults: { _controller: "ProjectMgmtBundle:Book:create" }
+    requirements: { _method: post }
+
+book_edit:
+    pattern:  /book/{id}/edit
+    defaults: { _controller: ProjectMgmtBundle:Book:edit" }
