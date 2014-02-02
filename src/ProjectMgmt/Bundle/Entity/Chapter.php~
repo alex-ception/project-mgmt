@@ -40,6 +40,13 @@ class Chapter {
      *
      */
     private $author;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text", nullable=true)
+     */
+    private $content;
 
     /**
      * @var integer
