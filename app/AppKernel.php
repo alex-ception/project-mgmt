@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             
             new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
             new Avocode\FormExtensionsBundle\AvocodeFormExtensionsBundle(),
-
+            new FOS\UserBundle\FOSUserBundle(),
             
             new ProjectMgmt\Bundle\ProjectMgmtBundle(),
         );
