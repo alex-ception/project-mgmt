@@ -13,12 +13,12 @@
         {% if form is defined %}
         {{ afe_form_stylesheet(form) }}
         {% endif %}
-        {% stylesheets 'bundles/projectmgmtbundle/css/*' filter='cssrewrite' %}
+        {% stylesheets 'bundles/projectmgmt/css/*' filter='cssrewrite' %}
         <link href="{{ asset_url }}" rel="stylesheet">
         {% endstylesheets %}
         {% endblock stylesheets %}
     </head>
-    <body>
+    <body oncontextmenu="return false;">
         <header>
             <div class="row">
                 <div class="container">
@@ -70,13 +70,16 @@
                         <ul id="menu" class="nav nav-pills nav-stacked">
                             {% for book in books %}
                             <li class="active">
-                                <a data-toggle="collapse" data-parent="#menu" href="#book-{{ book.id }}">{{ book.name }}</a>
+                                <a data-toggle="collapse" data-parent="#menu" href="#book-{{ book.id }}" class="right-clickable">{{ book.name }}</a>
                                 <ul id="book-{{ book.id }}" class="nav nav-pills nav-stacked collapse">
                                     {% for chapter in book.chapters %}
                                     <li>
                                         <a href="{{ path('chapter_show', { 'id': chapter.id }) }}">{{ chapter.name }}</a>
                                     </li>
                                     {% endfor %}
+                                    <li>
+                                        <a href="{{ path('chapter_new', { 'idBook': book.id }) }}">Nouveau chapitre</a>
+                                    </li>
                                 </ul>
                             </li>
                             {% endfor %}
@@ -99,7 +102,7 @@
         {% if form is defined %}
         {{ afe_form_javascript(form) }}
         {% endif %}
-        <script src="{{ asset('bundles/ckbdeupemshared/js/bdeupem.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/projectmgmt/js/projectmgmt.js') }}" type="text/javascript"></script>
         {% endblock javascripts %}
     </body>
 </html>
