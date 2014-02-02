@@ -38,7 +38,7 @@ class ChapterController extends Controller {
             $em->persist($chapter);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('chapter_show', array('id' => $book->getId())));
+            return $this->redirect($this->generateUrl('chapter_show', array('id' => $chapter->getId())));
         }
     }
 
