@@ -2,7 +2,7 @@
 {% block content %}
 <h1>chapter edition</h1>
 
-<form action="{{ path('book_modif') }}" method="post" {{ form_enctype(form) }}>
+<form action="{{ path('chapter_update',{'id':id}) }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
         <button type="submit">Save</button>
