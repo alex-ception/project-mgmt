@@ -1,5 +1,5 @@
 base:
-  title: Project MGMT
+  title: BTPB
   navbar:
     user:
       user.label: Bienvenue %username%
