@@ -21,7 +21,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         
         "bmatzner/fontawesome-bundle": "*",
-        "avocode/form-extensions-bundle": "dev-master"
+        "avocode/form-extensions-bundle": "dev-master",
+        "friendsofsymfony/user-bundle": "~2.0@dev"
     },
     "scripts": {
         "post-install-cmd": [

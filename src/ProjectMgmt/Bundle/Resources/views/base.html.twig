@@ -24,6 +24,11 @@
             {% block header_content %}
             <div class="row">
                 <div class="container">
+                    <h1>
+                        <a href="{{ path('project_mgmt_homepage') }}" class="brand">
+                            {% block title %}{{ 'base.title'|trans }}{% endblock title %}
+                        </a>
+                    </h1>
                 </div>
             </div>
             <nav class="navbar navbar-default" role="navigation">
