@@ -17,6 +17,7 @@ class ChapterType extends AbstractType
         $builder
             ->add('name')
             ->add('order')
+            ->add('content')
         ;
     }
     
