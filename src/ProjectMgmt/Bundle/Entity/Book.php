@@ -29,6 +29,12 @@ class Book
     private $name;
     
     /**
+     *
+     * @ORM\OneToMany(targetEntity="ProjectMgmt\Bundle\Entity\Chapter", mappedBy="book")
+     */
+    private $chapters;
+    
+    /**
      * Get id
      *
      * @return integer 
@@ -59,5 +65,45 @@ class Book
     public function getName()
     {
         return $this->name;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->chapters = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add chapters
+     *
+     * @param \ProjectMgmt\Bundle\Entity\Chapter $chapters
+     * @return Book
+     */
+    public function addChapter(\ProjectMgmt\Bundle\Entity\Chapter $chapters)
+    {
+        $this->chapters[] = $chapters;
+
+        return $this;
+    }
+
+    /**
+     * Remove chapters
+     *
+     * @param \ProjectMgmt\Bundle\Entity\Chapter $chapters
+     */
+    public function removeChapter(\ProjectMgmt\Bundle\Entity\Chapter $chapters)
+    {
+        $this->chapters->removeElement($chapters);
+    }
+
+    /**
+     * Get chapters
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChapters()
+    {
+        return $this->chapters;
     }
 }

@@ -29,6 +29,12 @@ class Book
     private $name;
     
     /**
+     *
+     * @ORM\OneToMany(targetEntity="ProjectMgmt\Bundle\Entity\Chapter", mappedBy="book")
+     */
+    private $chapters;
+    
+    /**
      * Get id
      *
      * @return integer 

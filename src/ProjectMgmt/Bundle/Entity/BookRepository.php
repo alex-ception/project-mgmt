@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class BookRepository extends EntityRepository
 {
+    public function menuFindAll()
+    {
+        $query = $this
+                    ->createQueryBuilder('b')
+                    ->leftJoin('b.chapters', 'c')
+                    ->addOrderBy('b.name', 'ASC')
+                    ->addOrderBy('c.order', 'ASC')
+        ;
+        
+        return $query->getQuery()->getResult();
+    }
 }
