@@ -67,16 +67,16 @@
                 {% endspaceless %}
                 <div class="row">
                     <div class="col-md-3">
-                        <ul class="nav nav-pills nav-stacked">
+                        <ul id="menu" class="nav nav-pills nav-stacked">
                             {% for book in books %}
                             <li class="active">
-                                <a href="#">{{ book.name }}</a>
-                                <ul>
-                                {% for chapter in book.chapters %}
-                                <li>
-                                    <a href="#">{{ chapter.name }}</a>
-                                </li>
-                                {% endfor %}
+                                <a data-toggle="collapse" data-parent="#menu" href="#book-{{ book.id }}">{{ book.name }}</a>
+                                <ul id="book-{{ book.id }}" class="nav nav-pills nav-stacked collapse">
+                                    {% for chapter in book.chapters %}
+                                    <li>
+                                        <a href="{{ path('chapter_show', { 'id': chapter.id }) }}">{{ chapter.name }}</a>
+                                    </li>
+                                    {% endfor %}
                                 </ul>
                             </li>
                             {% endfor %}
