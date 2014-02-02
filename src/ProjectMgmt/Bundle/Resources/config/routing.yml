@@ -18,3 +18,25 @@ book_create:
 book_edit:
     pattern:  /book/{id}/edit
     defaults: { _controller: ProjectMgmtBundle:Book:edit" }
+    
+chapter_show:
+    pattern:  /chapter/{id}/show
+    defaults: { _controller: "ProjectMgmtBundle:Chapter:show" }
+
+chapter_new:
+    pattern:  /chapter/{idBook}/new
+    defaults: { _controller: "ProjectMgmtBundle:Chapter:new" }
+
+chapter_create:
+    pattern:  /chapter/{idBook}/create
+    defaults: { _controller: "ProjectMgmtBundle:Chapter:create" }
+    requirements: { _method: post }
+
+chapter_edit:
+    pattern:  /chapter/{id}/edit
+    defaults: { _controller: ProjectMgmtBundle:Chapter:edit" }
+    
+chapter_modif:
+    pattern:  /chapter/{id}/create
+    defaults: { _controller: "ProjectMgmtBundle:Chapter:modif" }
+    requirements: { _method: post }

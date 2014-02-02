@@ -4,14 +4,16 @@ namespace ProjectMgmt\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use ProjectMgmt\Bundle\Entity\User;
+
 /**
  * Chapter
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="ProjectMgmt\Bundle\Entity\ChapterRepository")
  */
-class Chapter
-{
+class Chapter {
+
     /**
      * @var integer
      *
@@ -20,34 +22,38 @@ class Chapter
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=true)
      */
     private $name;
-    
+
     /**
-     * @var string
+     * @var \User
      *
-     * @ORM\Column(name="author", type="string", length=45, nullable=true)
+     * @ORM\ManyToOne(targetEntity="ProjectMgmt\Bundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="author", referencedColumnName="id")
+     * })
+     *
      */
     private $author;
-    
+
     /**
      * @var integer
      *
      * @ORM\Column(name="order", type="integer", nullable=true)
      */
     private $order;
-    
-     /**
+
+    /**
      * @var \Book
      *
      * @ORM\ManyToOne(targetEntity="ProjectMgmt\Bundle\Entity\Book")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="bookid", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="book", referencedColumnName="id")
      * })
      */
     private $book;
@@ -57,8 +63,7 @@ class Chapter
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -68,8 +73,7 @@ class Chapter
      * @param string $name
      * @return Chapter
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -80,32 +84,8 @@ class Chapter
      *
      * @return string 
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
-    }
-
-    /**
-     * Set author
-     *
-     * @param string $author
-     * @return Chapter
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return string 
-     */
-    public function getAuthor()
-    {
-        return $this->author;
     }
 
     /**
@@ -114,8 +94,7 @@ class Chapter
      * @param integer $order
      * @return Chapter
      */
-    public function setOrder($order)
-    {
+    public function setOrder($order) {
         $this->order = $order;
 
         return $this;
@@ -126,8 +105,7 @@ class Chapter
      *
      * @return integer 
      */
-    public function getOrder()
-    {
+    public function getOrder() {
         return $this->order;
     }
 
@@ -137,8 +115,7 @@ class Chapter
      * @param \ProjectMgmt\Bundle\Entity\Book $book
      * @return Chapter
      */
-    public function setBook(\ProjectMgmt\Bundle\Entity\Book $book = null)
-    {
+    public function setBook(\ProjectMgmt\Bundle\Entity\Book $book = null) {
         $this->book = $book;
 
         return $this;
@@ -149,8 +126,31 @@ class Chapter
      *
      * @return \ProjectMgmt\Bundle\Entity\Book 
      */
-    public function getBook()
-    {
+    public function getBook() {
         return $this->book;
+    }
+
+
+    /**
+     * Set author
+     *
+     * @param \ProjectMgmt\Bundle\Entity\User $author
+     * @return Chapter
+     */
+    public function setAuthor(\ProjectMgmt\Bundle\Entity\User $author = null)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \ProjectMgmt\Bundle\Entity\User 
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }
