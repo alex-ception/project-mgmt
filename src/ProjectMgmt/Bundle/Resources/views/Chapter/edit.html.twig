@@ -4,7 +4,4 @@
 
 <form action="{{ path('chapter_update',{'id':id}) }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
-    <p>
-        <button type="submit">Save</button>
-    </p>
 </form>{% endblock content %}
