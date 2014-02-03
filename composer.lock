@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a8dd40f3d6fb0cf01a7f24ce262dcb92",
+    "hash": "6d05b56ece9d55f61cf09d87d4bb97e8",
     "packages": [
         {
             "name": "afarkas/html5shiv",
@@ -890,7 +890,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1219,6 +1219,120 @@
                 "minification"
             ],
             "time": "2013-07-19 00:03:27"
+        },
+        {
+            "name": "liuggio/statsd-client-bundle",
+            "version": "v1.6.5",
+            "target-dir": "Liuggio/StatsDClientBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liuggio/StatsDClientBundle.git",
+                "reference": "7ea0873c8f788192d5693b5381149ac99a43b8fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liuggio/StatsDClientBundle/zipball/7ea0873c8f788192d5693b5381149ac99a43b8fe",
+                "reference": "7ea0873c8f788192d5693b5381149ac99a43b8fe",
+                "shasum": ""
+            },
+            "require": {
+                "liuggio/statsd-php-client": "1.0.*",
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">2.0"
+            },
+            "require-dev": {
+                "doctrine/dbal": ">=2.2.0",
+                "monolog/monolog": ">=1.2.0",
+                "symfony/yaml": ">=2.0.0"
+            },
+            "suggest": {
+                "doctrine/dbal": "Doctrine Dbal, collect statistic to/from the database (>=2.2.0,<2.4-dev required)",
+                "monolog/monolog": "Monolog, in order to generate statistic from log >=1.2.0)"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Liuggio\\StatsDClientBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Liuggio",
+                    "email": "liuggio@gmail.com",
+                    "homepage": "https://github.com/Liuggio"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/liuggio/StatsDClientBundle/contributors"
+                }
+            ],
+            "description": "Provides a statsd client and simple ready-to-use support for #Symfony2 Application",
+            "keywords": [
+                "graphite",
+                "monitor",
+                "statsd",
+                "symfony"
+            ],
+            "time": "2013-10-25 18:07:25"
+        },
+        {
+            "name": "liuggio/statsd-php-client",
+            "version": "v1.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liuggio/statsd-php-client.git",
+                "reference": "cb575a916b411d3a8e7433cae082e8767c51bb60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liuggio/statsd-php-client/zipball/cb575a916b411d3a8e7433cae082e8767c51bb60",
+                "reference": "cb575a916b411d3a8e7433cae082e8767c51bb60",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "require-dev": {
+                "monolog/monolog": ">=1.2.0"
+            },
+            "suggest": {
+                "monolog/monolog": "Monolog, in order to do generate statistic from log >=1.2.0)"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Liuggio": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Giulio De Donato",
+                    "email": "liuggio@gmail.com",
+                    "homepage": "http://www.welcometothebundle.com"
+                }
+            ],
+            "description": "Statsd (Object Oriented) client library for PHP",
+            "homepage": "http://github.com/liuggio/statsd-client",
+            "keywords": [
+                "etsy",
+                "monitoring",
+                "php",
+                "statsd"
+            ],
+            "time": "2013-11-02 17:21:18"
         },
         {
             "name": "monolog/monolog",
@@ -1632,20 +1746,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.0.0",
+            "version": "v1.2.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "cac3fdfb111adbe590155f491594636d45129783"
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/cac3fdfb111adbe590155f491594636d45129783",
-                "reference": "cac3fdfb111adbe590155f491594636d45129783",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
+                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
                 "shasum": ""
             },
             "require": {
+                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -1675,7 +1790,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:07"
+            "time": "2013-06-03 18:32:58"
         },
         {
             "name": "symfony/monolog-bundle",

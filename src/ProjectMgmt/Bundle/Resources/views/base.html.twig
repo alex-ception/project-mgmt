@@ -13,12 +13,12 @@
         {% if form is defined %}
         {{ afe_form_stylesheet(form) }}
         {% endif %}
-        {% stylesheets 'bundles/projectmgmt/css/*' filter='cssrewrite' %}
+        {% stylesheets 'bundles/projectmgmtbundle/css/*' filter='cssrewrite' %}
         <link href="{{ asset_url }}" rel="stylesheet">
         {% endstylesheets %}
         {% endblock stylesheets %}
     </head>
-    <body oncontextmenu="return false;">
+    <body>
         <header>
             <div class="row">
                 <div class="container">
@@ -67,11 +67,12 @@
                 {% endspaceless %}
                 <div class="row">
                     <div class="col-md-3">
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <ul id="menu" class="nav nav-pills nav-stacked">
                             {% for book in books %}
                             <li class="active">
-                                <a data-toggle="collapse" data-parent="#menu" href="#book-{{ book.id }}" class="right-clickable">
-                                    <i class="fa fa-folder-open-o"></i>
+                                <a data-toggle="collapse" data-parent="#menu" href="#book-{{ book.id }}">
+                                    <i class="fa fa-folder-o"></i>
                                     {{ book.name }}
                                 </a>
                                 <ul id="book-{{ book.id }}" class="nav nav-pills nav-stacked collapse">
@@ -84,7 +85,7 @@
                                     </li>
                                     {% endfor %}
                                     <li>
-                                        <a href="{{ path('chapter_new', { 'idBook': book.id }) }}">
+                                        <a href="{{ path('chapter_new', {'idBook': book.id }) }}">
                                             <i class="fa fa-plus" style="color: darkgreen;"></i>
                                             Nouveau chapitre
                                         </a>
@@ -93,12 +94,13 @@
                             </li>
                             {% endfor %}
                             <li class="active">
-                                <a href="#">
+                                <a href="{{ path('book_new') }}">
                                     <i class="fa fa-plus" style="color: darkgreen;"></i>
                                     Nouveau livre
                                 </a>
                             </li>
                         </ul>
+                        {% endif %}
                     </div>
                     <div class="col-md-9">
                         {% block content %}{% endblock content %}
@@ -117,7 +119,7 @@
         {% if form is defined %}
         {{ afe_form_javascript(form) }}
         {% endif %}
-        <script src="{{ asset('bundles/projectmgmt/js/projectmgmt.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/ckbdeupemshared/js/bdeupem.js') }}" type="text/javascript"></script>
         {% endblock javascripts %}
     </body>
 </html>

@@ -18,10 +18,11 @@ class ChapterController extends Controller {
     public function newAction($idBook) {
         $form = $this->createForm(new ChapterType());
 
+        $book = $this->getDoctrine()->getRepository('ProjectMgmtBundle:Book')->findOneById($idBook);
 
         return $this->render('ProjectMgmtBundle:Chapter:new.html.twig', array(
                     'form' => $form->createView(),
-                    'idBook' => $idBook
+                    'book' => $book,
         ));
     }
     

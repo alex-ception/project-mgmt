@@ -15,9 +15,30 @@ class ChapterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('order')
-            ->add('content')
+            ->add('name', null, array(
+                'label' => 'Nom du chapitre',
+                'attr'  => array(
+                    'class' => 'form-control',
+                ),
+            ))
+            ->add('order', null, array(
+                'label' => 'Ordre',
+                'attr'  => array(
+                    'class' => 'form-control',
+                ),
+            ))
+            ->add('content', 'afe_elastic_textarea', array(
+                'label' => 'Contenu',
+                'attr'  => array(
+                    'class' => 'form-control',
+                ),
+            ))
+            ->add('save', 'submit', array(
+                'label' => 'Sauvegarder',
+                'attr'  => array(
+                    'class' => 'btn btn-default btn-primary',
+                ),
+            ))
         ;
     }
     

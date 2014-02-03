@@ -22,7 +22,8 @@
         
         "bmatzner/fontawesome-bundle": "*",
         "avocode/form-extensions-bundle": "dev-master",
-        "friendsofsymfony/user-bundle": "~2.0@dev"
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "liuggio/statsd-client-bundle": "1.6.*"
     },
     "scripts": {
         "post-install-cmd": [
