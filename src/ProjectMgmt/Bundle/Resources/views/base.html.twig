@@ -76,6 +76,12 @@
                                     {{ book.name }}
                                 </a>
                                 <ul id="book-{{ book.id }}" class="nav nav-pills nav-stacked collapse">
+                                    <li>
+                                        <a href="{{ path('book_show', {'id': book.id}) }}">
+                                            <i class="fa fa-eye"></i>
+                                            Livre entier
+                                        </a>
+                                    </li>
                                     {% for chapter in book.chapters %}
                                     <li>
                                         <a href="{{ path('chapter_show', { 'id': chapter.id }) }}">

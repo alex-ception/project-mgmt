@@ -72,8 +72,3 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: ProjectMgmt\Bundle\Entity\User
-
-liuggio_stats_d_client:
-    connection:
-      host: localhost
-      port: 8125

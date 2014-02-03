@@ -20,8 +20,7 @@ class AppKernel extends Kernel
             new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
             new Avocode\FormExtensionsBundle\AvocodeFormExtensionsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new Liuggio\StatsDClientBundle\LiuggioStatsDClientBundle(),
-            
+           
             new ProjectMgmt\Bundle\ProjectMgmtBundle(),
         );
 

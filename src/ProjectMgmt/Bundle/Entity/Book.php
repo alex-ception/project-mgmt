@@ -31,6 +31,7 @@ class Book
     /**
      *
      * @ORM\OneToMany(targetEntity="ProjectMgmt\Bundle\Entity\Chapter", mappedBy="book")
+     * @ORM\OrderBy({"order" = "asc"})
      */
     private $chapters;
     

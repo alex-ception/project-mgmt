@@ -1,4 +1,8 @@
 {% extends 'ProjectMgmtBundle::base.html.twig' %}
 {% block content %}
-{{ book.id }}  {{ book.name }}
+<h1>{{ book.name }}</h1>
+{% for chapter in book.chapters %}
+    <h2>{{ chapter.name }}</h2>
+    {{ chapter.content }}
+{% endfor %}
 {% endblock content %}
