@@ -27,12 +27,9 @@ chapter_create:
     pattern:  /chapter/{idBook}/create
     defaults: { _controller: "ProjectMgmtBundle:Chapter:create" }
     requirements: { _method: post }
-
-chapter_edit:
-    pattern:  /chapter/{id}/edit
-    defaults: { _controller: "ProjectMgmtBundle:Chapter:edit" }
     
 chapter_update:
     pattern:  /chapter/{id}/update
     defaults: { _controller: "ProjectMgmtBundle:Chapter:update" }
     requirements: { _method: post }
+    
