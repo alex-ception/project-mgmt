@@ -17,10 +17,12 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             
-            new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
             new Avocode\FormExtensionsBundle\AvocodeFormExtensionsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new Liuggio\StatsDClientBundle\LiuggioStatsDClientBundle(),
+            new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
             
             new ProjectMgmt\Bundle\ProjectMgmtBundle(),
         );

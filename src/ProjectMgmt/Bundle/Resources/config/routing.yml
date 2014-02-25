@@ -2,34 +2,58 @@ project_mgmt_homepage:
     pattern:  /
     defaults: { _controller: ProjectMgmtBundle:Default:index }
 
+user_show:
+    pattern:  /user/{id}/show
+    defaults: { _controller: ProjectMgmtBundle:User:show }
+
 book_show:
     pattern:  /book/{id}/show
-    defaults: { _controller: "ProjectMgmtBundle:Book:show" }
+    defaults: { _controller: ProjectMgmtBundle:Book:show }
+    requirements: { _method: get }
 
 book_new:
     pattern:  /book/new
-    defaults: { _controller: "ProjectMgmtBundle:Book:new" }
+    defaults: { _controller: ProjectMgmtBundle:Book:new }
+    requirements: { _method: get }
 
 book_create:
     pattern:  /book/create
-    defaults: { _controller: "ProjectMgmtBundle:Book:create" }
+    defaults: { _controller: ProjectMgmtBundle:Book:create }
     requirements: { _method: post }
-    
+
+ajax_book_update:
+    pattern:      /json/book/{id}/update
+    defaults:     { _controller: ProjectMgmtBundle:Book:jsonUpdate }
+    requirements: { _method: get|post }
+    options:      { expose: true }
+
 chapter_show:
     pattern:  /chapter/{id}/show
-    defaults: { _controller: "ProjectMgmtBundle:Chapter:show" }
+    defaults: { _controller: ProjectMgmtBundle:Chapter:show }
+    requirements: { _method: get }
 
 chapter_new:
     pattern:  /chapter/{idBook}/new
-    defaults: { _controller: "ProjectMgmtBundle:Chapter:new" }
+    defaults: { _controller: ProjectMgmtBundle:Chapter:new }
+    requirements: { _method: get }
 
 chapter_create:
     pattern:  /chapter/{idBook}/create
-    defaults: { _controller: "ProjectMgmtBundle:Chapter:create" }
+    defaults: { _controller: ProjectMgmtBundle:Chapter:create }
     requirements: { _method: post }
+    
+chapter_edit:
+    pattern:  /chapter/{id}/edit
+    defaults: { _controller: ProjectMgmtBundle:Chapter:edit }
+    requirements: { _method: get }
     
 chapter_update:
     pattern:  /chapter/{id}/update
-    defaults: { _controller: "ProjectMgmtBundle:Chapter:update" }
+    defaults: { _controller: ProjectMgmtBundle:Chapter:update }
     requirements: { _method: post }
-    
+
+ajax_chapter_update:
+    pattern:      /json/chapter/{id}/update/{field}
+    defaults:     { _controller: ProjectMgmtBundle:Chapter:jsonUpdate }
+    requirements: { _method: get|post }
+    options:      { expose: true }

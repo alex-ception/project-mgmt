@@ -3,12 +3,15 @@
 namespace ProjectMgmt\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use JMS\Serializer\Annotation as Serialize;
 
 /**
  * Book
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="ProjectMgmt\Bundle\Entity\BookRepository")
+ * @Serialize\ExclusionPolicy("all")
  */
 class Book
 {
@@ -18,6 +21,7 @@ class Book
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Serialize\Expose()
      */
     private $id;
 
@@ -25,6 +29,8 @@ class Book
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     * @Assert\NotBlank
+     * @Serialize\Expose()
      */
     private $name;
     

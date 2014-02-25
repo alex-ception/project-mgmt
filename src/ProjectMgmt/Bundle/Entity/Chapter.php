@@ -3,7 +3,8 @@
 namespace ProjectMgmt\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use JMS\Serializer\Annotation as Serialize;
 use ProjectMgmt\Bundle\Entity\User;
 
 /**
@@ -11,6 +12,7 @@ use ProjectMgmt\Bundle\Entity\User;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="ProjectMgmt\Bundle\Entity\ChapterRepository")
+ * @Serialize\ExclusionPolicy("all")
  */
 class Chapter {
 
@@ -20,6 +22,7 @@ class Chapter {
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Serialize\Expose()
      */
     private $id;
 
@@ -27,6 +30,8 @@ class Chapter {
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     * @Assert\NotBlank
+     * @Serialize\Expose()
      */
     private $name;
 
@@ -37,6 +42,7 @@ class Chapter {
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="author", referencedColumnName="id")
      * })
+     * @Serialize\Expose()
      *
      */
     private $author;
@@ -45,6 +51,8 @@ class Chapter {
      * @var string
      *
      * @ORM\Column(name="content", type="text", nullable=true)
+     * @Assert\NotBlank
+     * @Serialize\Expose()
      */
     private $content;
 
@@ -52,6 +60,7 @@ class Chapter {
      * @var integer
      *
      * @ORM\Column(name="number", type="integer", nullable=true)
+     * @Serialize\Expose()
      */
     private $order;
 

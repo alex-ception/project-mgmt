@@ -5,6 +5,11 @@ namespace ProjectMgmt\Bundle\Controller;
 use ProjectMgmt\Bundle\Entity\Chapter;
 use \ProjectMgmt\Bundle\Form\ChapterType;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+
 class ChapterController extends Controller {
 
     public function showAction($id) {
@@ -72,5 +77,64 @@ class ChapterController extends Controller {
             return $this->redirect($this->generateUrl('chapter_show', array('id' => $chapter->getId())));
         }
     }
+    public function jsonUpdateAction($id, $field)
+    {
+        $em         = $this->getDoctrine()->getManager();
+        $chapter    = $em->getRepository('ProjectMgmtBundle:Chapter')->find($id);
+        if (!$chapter)
+            throw new NotFoundHttpException();
+        
+        if ($chapter->getAuthor()->getId() !== $this->getUser()->getId())
+            throw new AccessDeniedHttpException();
 
+        $formBuilder = $this
+                    ->createFormBuilder($chapter)
+                        ->setAction($this->generateUrl('ajax_chapter_update', array(
+                            'id'    => $id,
+                            'field'  => $field,
+                        )))
+                        ->setMethod('POST')
+        ;
+        
+        switch ($field) {
+            case 'name':
+                $formBuilder->add('name', 'text', array(
+                        'label' => false,
+                        'attr'  => array(
+                            'class' => 'input-lg'
+                        ),
+                ));
+               break;
+            case 'content':
+                $formBuilder->add('content', 'afe_elastic_textarea', array(
+                    'label' => false,
+                ));
+            default:
+                break;
+        }
+        
+        $form = $formBuilder->getForm();
+        
+        if ($this->getRequest()->isMethod('POST')) {
+            $response = array();
+            $form->bind($this->getRequest());
+
+            if ($form->isValid()) {
+                $serializer = $this->get('jms_serializer');
+                $em->persist($chapter);
+                $em->flush();
+                $response['code'] = 0;
+                $response['result'] = $serializer->serialize($chapter, 'json');
+            } else {
+                $response['code'] = -1;
+                $response['message'] = $form->getErrorsAsString();
+            }
+
+            return new JsonResponse($response);
+        }
+
+        return $this->render('ProjectMgmtBundle:Book:edit_form.html.twig', array(
+            'form'  => $form->createView(),
+        ));
+    }
 }

@@ -1,3 +1,5 @@
+<div class="row">
 {% for type in ['danger', 'warning', 'info', 'success'] %}
     {% include 'ProjectMgmtBundle::flash_message.html.twig' with {'type': type } only %}
 {% endfor %}
+</div>

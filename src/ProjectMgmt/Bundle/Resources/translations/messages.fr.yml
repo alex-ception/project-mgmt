@@ -1,6 +1,8 @@
+Bad credentials: Utilisateur ou mot de passe invalide
 base:
   title: BTPB
   navbar:
+    toggle: Toggle
     user:
       user.label: Bienvenue %username%
       login.label: Connexion
@@ -9,6 +11,12 @@ base:
   breadcrumb:
     home: Accueil
     login: Connexion
+  sidebar:
+    chapter.new: Nouveau chapitre
+    book.new: Nouveau livre
+    book.show: Lire en entier
+
+chapter.author: Rédigé par %author%
 
 page:
   home:
@@ -19,3 +27,7 @@ page:
       username.label: Utilisateur
       password.label: Mot de passe
       submit.label: Se connecter
+      reset.label: Réinitialiser
+
+flash:
+  book.error.undefined: Impossible de trouver le livre souhaité

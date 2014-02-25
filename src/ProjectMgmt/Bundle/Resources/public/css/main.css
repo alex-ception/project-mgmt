@@ -1,0 +1,99 @@
+body
+{
+    background: #424242;
+    color: #E9E9E9;
+  position: relative;
+}
+.acme
+{
+    font-family: 'Acme', sans-serif;
+}
+
+.login h1
+{
+    color: #E9E9E9;
+    font-size: 600%;
+    text-align: center;
+}
+
+.btn-primary
+{
+    background: #3299BB;
+    border: 1px solid #3299BB;
+    font-weight: bold;
+}
+
+.btn-primary:hover
+{
+    background: #FF9900;
+    border: 1px solid #FF9900;
+    font-weight: bold;
+}
+
+#sidebar li a.book
+{
+    background: #3299BB;
+    color: #E9E9E9;
+    font-weight: bold;
+}
+
+#sidebar li a.book:hover
+{
+    background: #FF9900;
+}
+
+#sidebar li ul
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+#sidebar li a.chapter
+{
+    background: #E9E9E9;
+    color: #424242;
+}
+
+#sidebar li a.chapter:hover
+{
+    background: #BCBCBC;
+}
+
+#content
+{
+    color: #424242;
+}
+
+#content h1
+{
+    color: #FF9900;
+}
+
+#content h3
+{
+    color: #3299BB;
+}
+
+hr
+{
+    background: #ff0000;
+    color: #ff0000;
+}
+
+small
+{
+    font-style: italic;
+}
+
+#book-name input
+{
+    color: #FF9900;
+    font-family: 'Acme', sans-serif;
+}
+
+#chapter-name input
+{
+    color: #3299BB;
+    font-family: 'Acme', sans-serif;
+}
