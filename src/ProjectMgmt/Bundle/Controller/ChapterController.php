@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 class ChapterController extends Controller {
 
     public function showAction($id) {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $chapter = $em->getRepository('ProjectMgmtBundle:Chapter')->find($id);
         $user = $this->getUser();
         if ($user->getId() == $chapter->getAuthor()->getId()) {

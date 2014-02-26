@@ -14,7 +14,7 @@ class BookController extends Controller {
     public function showAction($id) {
         $em = $this
                 ->getDoctrine()
-                ->getEntityManager()
+                ->getManager()
         ;
 
         $book = $em
