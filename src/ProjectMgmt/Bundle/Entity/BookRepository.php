@@ -18,7 +18,6 @@ class BookRepository extends EntityRepository
                     ->createQueryBuilder('b')
                     ->leftJoin('b.chapters', 'c')
                     ->addOrderBy('b.name', 'ASC')
-                    ->addOrderBy('c.order', 'ASC')
         ;
         
         return $query->getQuery()->getResult();

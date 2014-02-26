@@ -23,7 +23,7 @@ class AppKernel extends Kernel
             new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
-            
+
             new ProjectMgmt\Bundle\ProjectMgmtBundle(),
         );
 
