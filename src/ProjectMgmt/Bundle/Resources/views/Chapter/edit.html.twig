@@ -1,7 +1,20 @@
 {% extends 'ProjectMgmtBundle::base.html.twig' %}
-{% block content %}
-<h1>chapter edition</h1>
 
-<form action="{{ path('chapter_update',{'id':id}) }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-</form>{% endblock content %}
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h1 class="acme">{{ chapter.name }}</h1>
+        <hr>
+        <form action="{{ path('chapter_update',{'id':chapter.id}) }}" method="post" {{ form_enctype(form) }}>
+            {{ form_row(form._token) }}
+            {{ form_row(form.name) }}
+            {% if is_granted('ROLE_ADMIN') %}
+            {{ form_row(form.order) }}
+            {{ form_row(form.author) }}
+            {% endif %}
+            {{ form_row(form.content) }}
+            {{ form_row(form.save) }}
+        </form>
+    </div>
+</div>
+{% endblock content %}

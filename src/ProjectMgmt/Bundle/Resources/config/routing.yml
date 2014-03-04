@@ -3,11 +3,11 @@ project_mgmt_homepage:
     defaults: { _controller: ProjectMgmtBundle:Default:index }
 
 user_show:
-    pattern:  /user/{id}/show
+    pattern:  /user/show/{id}
     defaults: { _controller: ProjectMgmtBundle:User:show }
 
 book_show:
-    pattern:  /book/{id}/show
+    pattern:  /book/show/{id}
     defaults: { _controller: ProjectMgmtBundle:Book:show }
     requirements: { _method: get }
 
@@ -22,38 +22,38 @@ book_create:
     requirements: { _method: post }
 
 ajax_book_update:
-    pattern:      /json/book/{id}/update
+    pattern:      /json/book/update/{id}
     defaults:     { _controller: ProjectMgmtBundle:Book:jsonUpdate }
     requirements: { _method: get|post }
     options:      { expose: true }
 
 chapter_show:
-    pattern:  /chapter/{id}/show
+    pattern:  /chapter/show/{id}
     defaults: { _controller: ProjectMgmtBundle:Chapter:show }
     requirements: { _method: get }
 
 chapter_new:
-    pattern:  /chapter/{idBook}/new
+    pattern:  /chapter/new/{idBook}
     defaults: { _controller: ProjectMgmtBundle:Chapter:new }
     requirements: { _method: get }
 
 chapter_create:
-    pattern:  /chapter/{idBook}/create
+    pattern:  /chapter/create/{idBook}
     defaults: { _controller: ProjectMgmtBundle:Chapter:create }
     requirements: { _method: post }
     
 chapter_edit:
-    pattern:  /chapter/{id}/edit
+    pattern:  /chapter/edit/{id}
     defaults: { _controller: ProjectMgmtBundle:Chapter:edit }
     requirements: { _method: get }
     
 chapter_update:
-    pattern:  /chapter/{id}/update
+    pattern:  /chapter/update/{id}
     defaults: { _controller: ProjectMgmtBundle:Chapter:update }
-    requirements: { _method: post }
+    requirements: { _method: post }    
 
 ajax_chapter_update:
-    pattern:      /json/chapter/{id}/update/{field}
+    pattern:      /json/chapter/update/{id}/{field}
     defaults:     { _controller: ProjectMgmtBundle:Chapter:jsonUpdate }
     requirements: { _method: get|post }
     options:      { expose: true }

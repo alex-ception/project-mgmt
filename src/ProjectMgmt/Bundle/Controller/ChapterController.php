@@ -4,6 +4,7 @@ namespace ProjectMgmt\Bundle\Controller;
 
 use ProjectMgmt\Bundle\Entity\Chapter;
 use \ProjectMgmt\Bundle\Form\ChapterType;
+use \ProjectMgmt\Bundle\Form\ChapterNewType;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,37 +47,61 @@ class ChapterController extends Controller {
         $user = $this->getUser();
         $book = $this->getDoctrine()->getRepository('ProjectMgmtBundle:Book')->find($idBook);
         $chapter = new Chapter();
-        $form = $this->createForm(new ChapterType(), $chapter);
+        $form = $this->createForm(new ChapterNewType(), $chapter);
         $form->bind($this->getRequest());
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $chapter->setBook($book);
-            $chapter->setAuthor($user);
+//            $chapter->setAuthor($user);
             $em->persist($chapter);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('chapter_show', array('id' => $chapter->getId())));
+            return $this->redirect($this->generateUrl('book_show', array('id' => $idBook)));
         }
     }
 
     public function editAction($id) {
-        
+        $chapter = $this->getDoctrine()->getRepository('ProjectMgmtBundle:Chapter')->find($id);
+        if (!$chapter)
+            return $this->redirect($this->generateUrl('project_mgmt_homepage'));
+
+        $form = $this->createForm(new ChapterType(), $chapter);
+
+        return $this->render('ProjectMgmtBundle:Chapter:edit.html.twig', array(
+            'form'      => $form->createView(),
+            'chapter'   => $chapter,
+        ));
     }
 
     public function updateAction($id) {
         $chapter = $this->getDoctrine()->getRepository('ProjectMgmtBundle:Chapter')->find($id);
+        if (!$chapter)
+            return $this->redirect($this->generateUrl('project_mgmt_homepage'));
+        
+        $order = $chapter->getOrder();
+
         $form = $this->createForm(new ChapterType(), $chapter);
         $form->bind($this->getRequest());
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+                $chapter->setAuthor($this->getUser());
+                $chapter->setOrder($order);
+            }
             $em->persist($chapter);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('chapter_show', array('id' => $chapter->getId())));
+            return $this->redirect($this->generateUrl('book_show', array('id' => $chapter->getBook()->getId())));
         }
+
+        return $this->render('ProjectMgmtBundle:Chapter:edit.html.twig', array(
+            'form'      => $form->createView(),
+            'chapter'   => $chapter,
+        ));
     }
+
     public function jsonUpdateAction($id, $field)
     {
         $em         = $this->getDoctrine()->getManager();

@@ -72,36 +72,16 @@
                                 <i class="fa fa-book fa-lg"></i>
                                 {{ book.name }}
                             </a>
-                            {#<ul id="book-{{ book.id }}" class="nav nav-pills nav-stacked collapse">
-                                <li>
-                                    <a class="chapter" href="{{ path('book_show', {'id': book.id }) }}">
-                                        <i class="fa fa-eye"></i>
-                                        {{ 'base.sidebar.book.show'|trans }}
-                                    </a>
-                                </li>
-                                {% for chapter in book.chapters %}
-                                <li>
-                                    <a class="chapter" href="{{ path('chapter_show', { 'id': chapter.id }) }}">
-                                        <i class="fa fa-align-justify"></i>
-                                        {{ chapter.name }}
-                                    </a>
-                                </li>
-                                {% endfor %}
-                                <li>
-                                    <a class="chapter" href="{{ path('chapter_new', {'idBook': book.id }) }}">
-                                        <i class="fa fa-plus"></i>
-                                        {{ 'base.sidebar.chapter.new'|trans }}
-                                    </a>
-                                </li>
-                            </ul>#}
                         </li>
                         {% endfor %}
+                        {% if is_granted('ROLE_ADMIN') %}
                         <li>
                             <a class="book" href="{{ path('book_new') }}">
                                 <i class="fa fa-plus"></i>
                                 {{ 'base.sidebar.book.new'|trans }}
                             </a>
                         </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

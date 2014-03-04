@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ChapterType extends AbstractType
+class ChapterNewType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -27,19 +27,6 @@ class ChapterType extends AbstractType
                 'query_builder' => function(\Doctrine\ORM\EntityRepository $er) {
                     return $er->createQueryBuilder('u')->orderBy('u.username', 'ASC');
                 },
-            ))
-            ->add('order', null, array(
-                'label' => 'Ordre',
-                'attr'  => array(
-                    'class' => 'form-control',
-                ),
-            ))
-            ->add('content', 'afe_elastic_textarea', array(
-                'label' => 'Contenu',
-                'attr'  => array(
-                    'class' => 'form-control',
-                ),
-                'required'  => false,
             ))
             ->add('save', 'submit', array(
                 'label' => 'Sauvegarder',
@@ -65,6 +52,6 @@ class ChapterType extends AbstractType
      */
     public function getName()
     {
-        return 'projectmgmt_bundle_chapter';
+        return 'projectmgmt_bundle_chapter_new';
     }
 }

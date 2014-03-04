@@ -28,6 +28,12 @@ page:
       password.label: Mot de passe
       submit.label: Se connecter
       reset.label: Réinitialiser
+  book:
+    new:
+      title: Ajouter un livre
+    show:
+      chapter:
+        add: Ajouter un chapitre
 
 flash:
   book.error.undefined: Impossible de trouver le livre souhaité

@@ -22,6 +22,9 @@ class BookController extends Controller {
                     ->find($id)
         ;
 
+        $chapter = new \ProjectMgmt\Bundle\Entity\Chapter;
+        $form = $this->createForm(new \ProjectMgmt\Bundle\Form\ChapterNewType(), $chapter);
+        
         if (!$book)
         {
             $this->get('session')->getFlashBag()->add('danger', 'flash.book.error.undefined', array());
@@ -29,7 +32,8 @@ class BookController extends Controller {
         }
         
         return $this->render('ProjectMgmtBundle:Book:show.html.twig', array(
-            'book'  => $book,
+            'book'      => $book,
+            'form'      => $form->createView(),
         ));
     }
 

@@ -74,6 +74,11 @@ class Chapter {
      */
     private $book;
 
+    public function __construct()
+    {
+        $this->content = 'Contenu du chapitre';
+    }
+    
     /**
      * Get id
      *
